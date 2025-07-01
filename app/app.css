@@ -48,6 +48,32 @@ body {
   }
 }
 
+.bg-dark {
+  @apply inset-0 bg-black/35 z-0;
+}
+
+.main-background {
+  background:
+          linear-gradient(
+                  to top left,
+                  #f8fafc 0%,
+                  #e0f2fe 30%,
+                  #bae6fd 60%,
+                  #f0fdf4 100%
+          ),
+          conic-gradient(
+                  from 45deg at 20% 50%,
+                  rgba(186, 230, 253, 0.3),
+                  rgba(240, 253, 244, 0.1),
+                  transparent 70%
+          );
+  filter: brightness(0.85) contrast(1.05);
+}
+
+.wrapper {
+  @apply w-full max-w-7xl mx-auto px-4 lg:px-8 items-center;
+}
+
 .glassmorphism {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(2px);
