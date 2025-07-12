@@ -3,7 +3,7 @@ import {NavLink} from "./index";
 
 const Navbar = () => {
     return (
-        <nav className="flex w-full p-6 sticky top-0 z-50 bg-dark backdrop-blur-sm">
+        <nav className="w-full p-6 sticky top-0 z-50 bg-dark backdrop-blur-sm">
             <header className="flex wrapper justify-between">
                 <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded flex items-center justify-center bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 shadow-md">
