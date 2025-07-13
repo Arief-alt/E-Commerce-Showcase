@@ -3,7 +3,7 @@ import {ProductCard} from "../../../components";
 
 const Dashboard = () => {
     return (
-        <main className="-mt-24 flex flex-col">
+        <main className="-mt-24 pb-20 flex flex-col">
             <section
                 className="h-[500px] w-full bg-cover bg-center"
                 style={{

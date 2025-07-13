@@ -97,3 +97,7 @@ body {
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
+
+.hover {
+    @apply transition-transform duration-300 ease-in-out hover:scale-105;
+}
