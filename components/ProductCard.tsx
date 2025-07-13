@@ -1,10 +1,30 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 
 const ProductCard = ({ image, type, title, description, stars, cost }: ProductItem) => {
-    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = () => setIsModalOpen(true)
-    const closeModal = () => setIsModalOpen(false)
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 1024 && isModalOpen) {
+                setIsModalOpen(false);
+            }
+        };
+
+        if (isModalOpen) {
+            document.body.style.overflow = 'hidden';
+            window.addEventListener('resize', handleResize);
+        } else {
+            document.body.style.overflow = '';
+            window.removeEventListener('resize', handleResize);
+        }
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [isModalOpen]);
 
     return (
         <>
@@ -19,7 +39,7 @@ const ProductCard = ({ image, type, title, description, stars, cost }: ProductIt
                 >
                     <div className="absolute inset-0 flex justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button
-                            className="bg-white p-2 rounded-md shadow cursor-pointer"
+                            className="hidden lg:flex bg-white p-2 rounded-md shadow cursor-pointer"
                             onClick={openModal}
                         >
                             <img
@@ -69,8 +89,17 @@ const ProductCard = ({ image, type, title, description, stars, cost }: ProductIt
             </article>
 
             {isModalOpen && (
-                <div className="fixed inset-0 bg-dark bg-opacity-70 flex justify-center items-center z-50">
-                    <div className="relative">
+                <div
+                    className="fixed inset-0 bg-dark bg-opacity-80 z-50"
+                    style={{ top: 0, left: 0 }}
+                >
+                    <div
+                        className="absolute left-1/2 transform translate-x p-4 max-w-[95vw] max-h-[90vh]"
+                        style={{
+                            top: `${window.scrollY + window.innerHeight / 2}px`,
+                            transform: 'translate(-50%, -50%)'
+                        }}
+                    >
                         <button
                             onClick={closeModal}
                             className="absolute top-2 right-2 bg-white rounded-full px-2 pb-1 z-50 cursor-pointer"
@@ -80,7 +109,7 @@ const ProductCard = ({ image, type, title, description, stars, cost }: ProductIt
                         <img
                             src={image || '/assets/images/test-bg.jpg'}
                             alt="Zoomed"
-                            className="w-full h-auto max-w-[95vw] max-h-[90vh] object-contain rounded shadow-lg"
+                            className="w-full h-auto object-contain rounded shadow-lg"
                         />
                     </div>
                 </div>
