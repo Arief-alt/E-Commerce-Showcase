@@ -3,6 +3,11 @@ declare interface NavLink {
     children: React.ReactNode;
 }
 
+declare interface NavLinksProps {
+    mobile?: boolean;
+    closeMenu?: () => void;
+}
+
 declare interface ProductItem {
     image: string;
     type: string;

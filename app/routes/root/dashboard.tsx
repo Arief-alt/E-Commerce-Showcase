@@ -1,9 +1,10 @@
 import React from 'react'
 import {ProductCard} from "../../../components";
+import { Link } from 'react-router';
 
 const Dashboard = () => {
     return (
-        <main className="-mt-24 pb-20 flex flex-col">
+        <main className="-mt-24 pb-10 flex flex-col">
             <section
                 className="h-[500px] w-full bg-cover bg-center"
                 style={{
@@ -16,13 +17,27 @@ const Dashboard = () => {
                 <header
                     className="pt-40 p-12 flex flex-col justify-center items-center gap-6"
                 >
-                    <h1 className="text-white text-5xl font-semibold">
+                    <h1 className="text-white text-4xl md:text-5xl font-semibold">
                         E-CommerceShowcase
                     </h1>
 
-                    <span className="text-white text-2xl">
+                    <span className="text-white text-center text-2xl">
                         Discover premium products with exceptional quality and unbeatable prices
                     </span>
+
+                    <div className="pt-6">
+                        <Link
+                            to="/products"
+                            className="hover flex justify-center items-center px-4 py-2 w-[240px] rounded-lg button-background sleek-white cursor-pointer"
+                        >
+                            <h1 className="text-lg text-white">Shop Now</h1>
+                            <img
+                                src="/assets/icons/right-arrow.png"
+                                alt="Right Arrow"
+                                className="mt-1 ml-3 size-6"
+                            />
+                        </Link>
+                    </div>
                 </header>
             </section>
 
@@ -68,6 +83,40 @@ const Dashboard = () => {
                     stars={0}
                     cost={100}
                 />
+            </section>
+
+            <section className="pt-10 flex wrapper justify-center">
+                <div className="w-full grid md:grid-cols-3 gap-4">
+                    <div className="w-full hover items-center flex flex-col p-5 rounded-lg border border-gray-600 bg-dark">
+                        <h1 className="font-bold text-3xl introduction-gradient-text">
+                            10K+
+                        </h1>
+
+                        <p className="me-gradient-text text-lg">
+                            Happy Customers
+                        </p>
+                    </div>
+
+                    <div className="hover items-center flex flex-col p-5 rounded-lg border border-gray-600 bg-dark">
+                        <h1 className="font-bold text-3xl introduction-gradient-text">
+                            500+
+                        </h1>
+
+                        <p className="me-gradient-text text-lg">
+                            Premium Products
+                        </p>
+                    </div>
+
+                    <div className="hover items-center flex flex-col p-5 rounded-lg border border-gray-600 bg-dark">
+                        <h1 className="font-bold text-3xl introduction-gradient-text">
+                            99%
+                        </h1>
+
+                        <p className="me-gradient-text text-lg">
+                            Satisfaction Rate
+                        </p>
+                    </div>
+                </div>
             </section>
         </main>
     )

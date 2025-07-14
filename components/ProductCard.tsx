@@ -83,7 +83,15 @@ const ProductCard = ({ image, type, title, description, stars, cost }: ProductIt
 
                 <div className="px-6 pb-4">
                     <button className="sleek-white w-full flex border border-blue-300 button-background justify-center px-4 py-2 rounded-md items-center gap-2">
-                        <h1 className="text-md text-white">Add to Cart</h1>
+                        <img
+                            src="/assets/icons/shopping-cart.png"
+                            alt="Shopping Cart"
+                            className="size-5"
+                        />
+
+                        <h1 className="text-md text-white">
+                            Add to Cart
+                        </h1>
                     </button>
                 </div>
             </article>
