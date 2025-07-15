@@ -10,7 +10,7 @@ const MobileNavbar = () => {
     return (
         <div className="w-full px-1 py-6 top-0 z-50 sticky lg:hidden bg-dark backdrop-blur-sm">
             <header className="wrapper justify-between flex">
-                <div className="flex items-center gap-4" onClick={closeMenu} style={{ cursor: "pointer" }}>
+                <div className="flex items-center gap-4" onClick={closeMenu}>
                     <div className="w-12 h-12 rounded flex items-center justify-center bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 shadow-md">
                         <img
                             src="/assets/icons/shopping-cart.png"
